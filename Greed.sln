@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Greed", "Greed\Greed.csproj", "{703DAE8F-6144-4362-862F-9BC0D257C24F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greed.Tests", "Greed.Tests\Greed.Tests.csproj", "{57BD231F-2DAE-4AD8-83A6-5B3A4A278FBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Game.Tests", "Greed.Tests\Game.Tests.csproj", "{57BD231F-2DAE-4AD8-83A6-5B3A4A278FBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game", "Game\Game.csproj", "{5EEA1C1C-8B87-43E1-8698-47906B9EDAB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{57BD231F-2DAE-4AD8-83A6-5B3A4A278FBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57BD231F-2DAE-4AD8-83A6-5B3A4A278FBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57BD231F-2DAE-4AD8-83A6-5B3A4A278FBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EEA1C1C-8B87-43E1-8698-47906B9EDAB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EEA1C1C-8B87-43E1-8698-47906B9EDAB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EEA1C1C-8B87-43E1-8698-47906B9EDAB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EEA1C1C-8B87-43E1-8698-47906B9EDAB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

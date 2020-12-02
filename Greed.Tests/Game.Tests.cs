@@ -2,14 +2,15 @@ using System;
 using System.Collections.Generic;
 using NUnit.Framework;
 
-namespace Greed.Tests
+namespace Game.Tests
 {
     public class Tests
     {
-
+        private List<int> _Rolls = new List<int>();
         [SetUp]
         public void Setup()
         {
+            _Rolls = Game.Class1
         }
 
         [Test]
