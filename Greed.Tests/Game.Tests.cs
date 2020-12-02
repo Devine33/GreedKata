@@ -6,22 +6,37 @@ namespace Game.Tests
 {
     public class Tests
     {
-        private List<int> _Rolls = new List<int>();
+        private readonly List<int> _rolls = new List<int>();
+        private Game _game;
         [SetUp]
         public void Setup()
         {
-            _Rolls = Game.Class1
+            _game = new Game();
+            _rolls.Clear();
         }
 
         [Test]
         public void TripleScoreIsCalculatedCorrectly() // [1,1,1,4,6] = 1000
         {
-            Assert.Pass();
+            _rolls.AddRange(new List<int>() { 1, 1, 1, 2, 4 });
+           var triple= _game.CalculateTriple(1);
+            Assert.AreEqual(1000,triple);
         }
 
-        public void TripleScoreAndSingleFiveIsCaclulatedCorrectly()
+        [Test]
+        public void CanDiscoverTriples()
         {
+            _rolls.AddRange(new List<int>() { 1, 1, 1, 2, 4 });
+            var triple = _game.HasMultipleOccurances(_rolls, 3);
+            Assert.AreEqual(true, triple.Item2);
+        }
 
+        [Test]
+        public void TripleCountIsZero()
+        {
+            _rolls.AddRange(new List<int>() { 1, 2, 1, 2, 4 });
+            var triple = _game.HasMultipleOccurances(_rolls, 3);
+            Assert.AreEqual(false, triple.Item2);
         }
 
         public void MaxScoreIsCalculatedCorrectly() // [1,1,1,1,1] = 1200
@@ -32,26 +47,6 @@ namespace Game.Tests
         public void WorstScoreIsCalculatedCorrectly() //[2,3,4,6,2] = 0
         {
 
-        }
-
-
-
-        private List<int> Roll()
-        {
-            var rolls = new List<int>();
-
-            var dice = new Random();
-            for (int i = 0; i < 5; i++)
-            {
-               rolls.Add(dice.Next(1,6));
-            }
-
-            return rolls;
-        }
-
-        private int CalculateScore()
-        {
-            return 0;
         }
     }
 }
