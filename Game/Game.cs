@@ -7,8 +7,8 @@ namespace Game
     public class Game
     {
 
-        private List<int> _rolls = new List<int>();
-        public bool Triple = false;
+        private readonly List<int> _rolls = new List<int>();
+
         public List<int> RollDice()
         {
             var dice = new Random();
@@ -20,24 +20,40 @@ namespace Game
             return _rolls;
         }
 
-        public void ResetRolls()
-        {
-            _rolls.Clear();
-        }
-
-
-
         public int CalculateScore(List<int> scores)
         {
             var score = 0;
 
-            var tripleScore = HasMultipleOccurances(scores,3);
-            if (tripleScore.Item2)
+            var (tripleNumber, wasTriple) = HasMultipleOccurances(scores,3);
+            if (wasTriple)
             {
-               score =  CalculateTriple(tripleScore.Item1);
+               score =  CalculateTriple(tripleNumber);
+               for (int i = 0; i < 3; i++)
+               {
+                   scores.Remove(tripleNumber);
+               }
             }
 
-            return 0;
+            score += CalculateSingles(scores);
+            return score;
+        }
+
+        public int CalculateSingles(List<int> scores)
+        {
+            var score = 0;
+            foreach (var roll in scores)
+            {
+                switch (roll)
+                {
+                    case 1:
+                        score += 100;
+                        break;
+                    case 5:
+                        score += 50;
+                        break;
+                }
+            }
+            return score;
         }
 
         public int CalculateTriple(int number)

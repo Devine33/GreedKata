@@ -6,7 +6,12 @@ namespace Greed
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var g = new Game.Game();
+            var playerRoll = g.RollDice();
+            var playerScore = g.CalculateScore(playerRoll);
+            playerRoll.ForEach(Console.WriteLine);
+            Console.WriteLine("The player score is: ");
+            Console.WriteLine(playerScore);
         }
     }
 }
